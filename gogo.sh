@@ -1,7 +1,9 @@
 #!/bin/bash
 
+# THIS SCRIPT IS NOT IDEMPOTENT
+
 # Prepare to prepare
-apt-get install yarnpkg git-core build-essential python-virtualenv docker-compose vim net-tools
+apt-get install -y yarnpkg git-core build-essential python-virtualenv docker-compose vim net-tools
 ln -s /usr/lib/nodejs/yarn/bin/yarn.js /usr/local/bin/yarn
 
 # Send in the clones
@@ -22,7 +24,7 @@ cd ..
 make generate-admin-headless
 
 # Start the services
-cd ~/core-general && make docker-network && make build-run-core
+cd ~/core-general && make docker-network && make build-run-core-detached
 
 # Magic incantations in a specific order. We happen to know 7 will work when bootstrapping from scratch.
 docker exec -ti compose_files_core-access-control_1 python seed_data.py

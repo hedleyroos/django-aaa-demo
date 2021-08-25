@@ -22,7 +22,6 @@ Vagrant.configure("2") do |config|
       node.vm.provision "shell", inline: "apt-get install -y openssh-server", privileged: true
       node.vm.provision "shell", inline: "mkdir -p /root/.ssh", privileged: true
       node.vm.provision "shell", inline: "cp /tmp/authorized_keys /root/.ssh/", privileged: true
-      node.vm.provision "shell", inline: "cp gogo.sh /root/", privileged: true
 
       node.vm.provider "virtualbox" do |vb|
         vb.memory = "8000"

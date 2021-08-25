@@ -1,6 +1,6 @@
 Django AAA Demo
 ===============
-**Demo authentication and RBAC against a AAA service .**
+**Demo authentication and RBAC against a AAA service.**
 
 Usage
 -----
