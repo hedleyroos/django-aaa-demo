@@ -25,3 +25,9 @@ Wait two minutes for some housekeeping tasks to complete.
 
 Visit `http://core-management-portal` on your host operating system browser. Note http, *not* https. Click login,
 and on the subsequent page sign in with `cobusc` and password `something`.
+
+Go to `http://core-authentication-service/en/admin/oidc_provider/client/6/change/`. Add
+`http://core-management-portal/#/oidc/callback?` to `Redirect URIs`. Add
+`http://core-management-portal/` to `Post Logout Redirect URI`. Save. Sorry, this part isn't automated yet.
+
+Local django etc. Login.
