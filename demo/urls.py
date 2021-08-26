@@ -17,8 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 
+from demo import views
+
+
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="demo/home.html"), name="home"),
+    path('', views.HomeView.as_view(), name="home"),
     path('admin/', admin.site.urls),
     path('oidc/', include('mozilla_django_oidc.urls')),
+    path("product/create/", views.ProductCreateView.as_view(), name="product-create"),
+    path("product/<int:pk>/change/", views.ProductUpdateView.as_view(), name="product-update"),
+    path("product/<int:pk>/", views.ProductDetailView.as_view(), name="product-detail"),
 ]
