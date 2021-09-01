@@ -27,8 +27,8 @@ Visit `http://core-management-portal` on your host operating system browser. Not
 and on the subsequent page sign in with `cobusc` and password `something`.
 
 Go to `http://core-authentication-service/en/admin/oidc_provider/client/6/change/`. Add
-`http://core-management-portal/#/oidc/callback?` to `Redirect URIs`. Add
-`http://core-management-portal/` to `Post Logout Redirect URI`. Save. Sorry, this part isn't automated yet.
+`http://localhost:8000/oidc/callback/` to `Redirect URIs`. Add
+`http://localhost:8000/` to `Post Logout Redirect URI`. Save. Sorry, this part isn't automated yet.
 
 TODO:
 roles permissions etc setup on management portal doc
