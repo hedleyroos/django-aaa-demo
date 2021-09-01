@@ -15,10 +15,11 @@ class HomeView(TemplateView):
         return di
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(PermissionRequiredMixin, CreateView):
     model = models.Product
     form_class = forms.ProductForm
     success_url = "/"
+    permission_required = "product:create"
 
 
 class ProductUpdateView(PermissionRequiredMixin, UpdateView):

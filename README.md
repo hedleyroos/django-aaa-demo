@@ -39,7 +39,7 @@ http://core-management-portal/#/roles
 Add product_manager
 
 http://core-management-portal/#/resources
-Add urn:updb:product:manage
+Add urn:updb:product
 
 http://core-management-portal/#/domainroles
 Add girl_effect_organisation, product_manager

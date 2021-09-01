@@ -20,6 +20,11 @@ class MyOIDCAB(OIDCAuthenticationBackend):
         profile.save()
         return user
 
-
-#@permission(domain, user_id, "urn:updb:product", "read")
-#def get()
+    def has_perm(self, user, perm, *args, **kwargs):
+        #import pdb;pdb.set_trace()
+        model_name, permission = perm.split(":")
+        resource = "urn:updb:%s" % model_name
+        return permission in user.userprofile.resource_permissions.get(resource, [])
+        #if args:
+        #    instance = args[0]
+        #return False
