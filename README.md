@@ -31,7 +31,25 @@ Go to `http://core-authentication-service/en/admin/oidc_provider/client/6/change
 `http://localhost:8000/` to `Post Logout Redirect URI`. Save. Sorry, this part isn't automated yet.
 
 TODO:
+http://core-authentication-service/en/admin/authentication_service/coreuser/f8c437c6-0196-11ec-8758-0242c0a8130b/change/
+Stel Girl Effect organisation
+
 roles permissions etc setup on management portal doc
+http://core-management-portal/#/roles
+Add product_manager
+
+http://core-management-portal/#/resources
+Add urn:updb:product:manage
+
+http://core-management-portal/#/domainroles
+Add girl_effect_organisation, product_manager
+
+http://core-management-portal/#/roleresourcepermissions
+Add product_manager, urn:updb:product:manage, create
+
+http://core-management-portal/#/userdomainroles
+cobusc, girl_effect_organisation
+product_manager
 
 Local django etc. Login.
 

@@ -1,23 +1,23 @@
 from mozilla_django_oidc.auth import OIDCAuthenticationBackend
 
+from demo.models import UserProfile
+
 
 class MyOIDCAB(OIDCAuthenticationBackend):
 
     def create_user(self, claims):
-        user = super(MyOIDCAB, self).create_user(claims)
-
-        #user.first_name = claims.get('given_name', '')
-        #user.last_name = claims.get('family_name', '')
-        #user.save()
-        print(claims)
+        user = super().create_user(claims)
         return user
 
     def update_user(self, user, claims):
-        import pdb;pdb.set_trace()
-        #user.first_name = claims.get('given_name', '')
-        #user.last_name = claims.get('family_name', '')
-        #user.save()
-        print(claims)
+        #import pdb;pdb.set_trace()
+        user = super().update_user(user, claims)
+        try:
+            profile = user.userprofile
+        except UserProfile.DoesNotExist:
+            profile = UserProfile.objects.create(user=user)
+        profile.resource_permissions = claims["resource_permissions"]
+        profile.save()
         return user
 
 
