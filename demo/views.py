@@ -1,5 +1,6 @@
 from django.views.generic import DetailView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView
+from rules.contrib.views import PermissionRequiredMixin
 
 from demo import forms
 from demo import models
@@ -20,10 +21,11 @@ class ProductCreateView(CreateView):
     success_url = "/"
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(PermissionRequiredMixin, UpdateView):
     model = models.Product
     form_class = forms.ProductForm
     success_url = "/"
+    permission_required = "products.change_product"
 
 
 class ProductDetailView(DetailView):

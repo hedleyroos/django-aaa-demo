@@ -19,7 +19,7 @@ SSH into the virtual machine when it is ready:
 
 Start the containers::
 
-    ./gogo.sh
+    /vagrant/gogo.sh
 
 Wait two minutes for some housekeeping tasks to complete.
 

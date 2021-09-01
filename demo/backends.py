@@ -13,6 +13,7 @@ class MyOIDCAB(OIDCAuthenticationBackend):
         return user
 
     def update_user(self, user, claims):
+        import pdb;pdb.set_trace()
         #user.first_name = claims.get('given_name', '')
         #user.last_name = claims.get('family_name', '')
         #user.save()

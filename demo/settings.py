@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'demo',
     'mozilla_django_oidc',
+    'rules',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +130,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTHENTICATION_BACKENDS = [
     #'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
     'demo.backends.MyOIDCAB',
+    'rules.permissions.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
 

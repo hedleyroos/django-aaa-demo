@@ -1,6 +1,10 @@
 #!/bin/bash
 
 # THIS SCRIPT IS NOT IDEMPOTENT
+# If you restart (not recreate) then VM you need to SSH in and do:
+# docker kill $(docker ps -q)
+# docker rm $(docker ps -q)
+# cd ~/core-general  && make run-core
 
 # Prepare to prepare
 apt-get install -y yarnpkg git-core build-essential python-virtualenv docker-compose vim net-tools
