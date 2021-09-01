@@ -30,4 +30,8 @@ Go to `http://core-authentication-service/en/admin/oidc_provider/client/6/change
 `http://core-management-portal/#/oidc/callback?` to `Redirect URIs`. Add
 `http://core-management-portal/` to `Post Logout Redirect URI`. Save. Sorry, this part isn't automated yet.
 
+TODO:
+roles permissions etc setup on management portal doc
+
 Local django etc. Login.
+
