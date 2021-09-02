@@ -1,4 +1,5 @@
-from django.views.generic import DetailView, TemplateView
+from django.http import HttpResponseRedirect
+from django.views.generic import View, DetailView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView
 from rules.contrib.views import PermissionRequiredMixin
 
@@ -12,6 +13,7 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         di = super().get_context_data(**kwargs)
         di["products"] = models.Product.objects.all()
+        di["domains"] = models.Domain.objects.all()
         return di
 
 
@@ -35,3 +37,13 @@ class ProductDetailView(DetailView):
     def get_context_data(self, **kwargs):
         di = super().get_context_data(**kwargs)
         return di
+
+
+class SwitchDomainView(View):
+
+    def get(self, *args, **kwargs):
+        profile = self.request.user.userprofile
+        profile.current_domain_id = kwargs["domain_id"]
+        profile.save()
+        return HttpResponseRedirect("/")
+
