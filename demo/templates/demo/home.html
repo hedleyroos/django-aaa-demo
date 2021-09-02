@@ -30,6 +30,8 @@
         <br />
     {% endfor %}
 
+    <pre>Domain access: {{ user.userprofile.pretty_domain_access }}</pre>
+
 {% else %}
     <a href="{% url 'oidc_authentication_init' %}">Login</a>
 {% endif %}

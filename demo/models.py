@@ -1,3 +1,5 @@
+import json
+
 from django.db import models
 from django.contrib.auth.models import User
 from jsonfield import JSONField
@@ -12,9 +14,12 @@ class Domain(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    resource_permissions = JSONField()
-    domain_roles = JSONField()
+    domain_access = JSONField()
     current_domain = models.ForeignKey(Domain, null=True, blank=True, on_delete=models.SET_NULL)
+
+    @property
+    def pretty_domain_access(self):
+        return json.dumps(self.domain_access, indent=4)
 
 
 class Product(models.Model):
