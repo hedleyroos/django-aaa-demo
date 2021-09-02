@@ -4,7 +4,6 @@ from demo.models import UserProfile, Domain
 
 
 class MyOIDCAB(OIDCAuthenticationBackend):
-
     def create_user(self, claims):
         user = super().create_user(claims)
         return user
@@ -22,8 +21,7 @@ class MyOIDCAB(OIDCAuthenticationBackend):
         return user
 
     def has_perm(self, user, perm, *args, **kwargs):
-        """If the user has the resource in his current domain then return True, else False.
-        """
+        """If the user has the resource in his current domain then return True, else False."""
 
         # Alias
         profile = user.userprofile

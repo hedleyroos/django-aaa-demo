@@ -40,10 +40,8 @@ class ProductDetailView(DetailView):
 
 
 class SwitchDomainView(View):
-
     def get(self, *args, **kwargs):
         profile = self.request.user.userprofile
         profile.current_domain_id = kwargs["domain_id"]
         profile.save()
         return HttpResponseRedirect("/")
-

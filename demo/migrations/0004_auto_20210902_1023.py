@@ -6,17 +6,17 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('demo', '0003_auto_20210902_0816'),
+        ("demo", "0003_auto_20210902_0816"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='userprofile',
-            old_name='domain_roles',
-            new_name='domain_access',
+            model_name="userprofile",
+            old_name="domain_roles",
+            new_name="domain_access",
         ),
         migrations.RemoveField(
-            model_name='userprofile',
-            name='resource_permissions',
+            model_name="userprofile",
+            name="resource_permissions",
         ),
     ]
