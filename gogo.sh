@@ -1,10 +1,22 @@
 #!/bin/bash
 
-# THIS SCRIPT IS NOT IDEMPOTENT
-# If you restart (not recreate) then VM you need to SSH in and do:
-# docker kill $(docker ps -q)
-# docker rm $(docker ps -q)
-# cd ~/core-general  && make run-core
+# TODO: prompt
+
+echo 'THIS SCRIPT IS NOT IDEMPOTENT'
+echo 'If you restart (not recreate) the VM you need to SSH in and do:'
+echo
+echo 'docker kill $(docker ps -q)'
+echo 'docker rm $(docker ps -q)'
+echo 'cd ~/core-general  && make run-core'
+echo
+read -p "Enter Y to proceed with this script, or N to exit. " -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    echo 'Aborting.'
+    exit 1
+fi
+
 
 # Prepare to prepare
 apt-get install -y yarnpkg git-core build-essential python-virtualenv docker-compose vim net-tools
