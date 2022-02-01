@@ -21,10 +21,11 @@ from demo import views
 
 
 urlpatterns = [
-    path('', views.HomeView.as_view(), name="home"),
-    path('admin/', admin.site.urls),
-    path('oidc/', include('mozilla_django_oidc.urls')),
+    path("", views.HomeView.as_view(), name="home"),
+    path("admin/", admin.site.urls),
+    path("oidc/", include("mozilla_django_oidc.urls")),
     path("product/create/", views.ProductCreateView.as_view(), name="product-create"),
     path("product/<int:pk>/change/", views.ProductUpdateView.as_view(), name="product-update"),
     path("product/<int:pk>/", views.ProductDetailView.as_view(), name="product-detail"),
+    path("switch-domain/<int:domain_id>/", views.SwitchDomainView.as_view(), name="switch-domain"),
 ]

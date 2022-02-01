@@ -3,7 +3,6 @@
 
 BOX_NAME = "debian/buster64"
 BOX_VERSION = "10.4.0"
-DISK_SIZE = "20GB"
 
 BOX_IP_PREFIX="172.29.44.10"
 
@@ -13,7 +12,6 @@ Vagrant.configure("2") do |config|
     config.vm.define "aaa" do |node|
       node.vm.box = BOX_NAME
       node.vm.box_version = BOX_VERSION
-      node.disksize.size = DISK_SIZE
 
       node.vm.hostname = "aaa"
       node.vm.network "private_network", ip: "#{BOX_IP_PREFIX}1"

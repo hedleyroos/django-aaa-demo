@@ -1,5 +1,7 @@
 {% if user.is_authenticated %}
     <p>Current user: {{ user.email }}</p>
+    <p>Current domain: {{ user.userprofile.current_domain.name }}</p>
+
     <form action="{% url 'oidc_logout' %}" method="post">
         {% csrf_token %}
         <input type="submit" value="logout">
@@ -16,6 +18,20 @@
         Edit <a href="{% url "product-update" product.pk %}">{{ product.name }}</a>
         <br />
     {% endfor %}
+
+    <hr />
+
+    <h2>Domains</h2>
+
+    Switch to domain
+
+    {% for domain in domains %}
+        <a href="{% url "switch-domain" domain.pk %}">{{ domain.name }}</a>
+        <br />
+    {% endfor %}
+
+    <pre>Domain access: {{ user.userprofile.pretty_domain_access }}</pre>
+
 {% else %}
     <a href="{% url 'oidc_authentication_init' %}">Login</a>
 {% endif %}
