@@ -46,7 +46,7 @@ http://core-management-portal/#/domainroles
 Add `girl_effect_organisation`, `product_manager`.
 
 http://core-management-portal/#/roleresourcepermissions
-Add `product_manager`, `urn:updb:product:manage`, `create`.
+Add `product_manager`, `urn:updb:product`, `create`.
 
 http://core-management-portal/#/userdomainroles
 Add `cobusc`, `girl_effect_organisation`, `product_manager`.
